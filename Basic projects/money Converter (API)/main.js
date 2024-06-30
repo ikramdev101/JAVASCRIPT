@@ -35,13 +35,13 @@
             <option value="JPY">JPY - Japanese Yen</option>
         </select>
 
-        <button onclick="convertCurrency()">Convert</button>
+        <button onclick="convert()">Convert</button>
 
         <h3 id="result"></h3>
     </div>
 
     <script>
-        async function convertCurrency() {
+        async function convert() {
             const amount = document.getElementById('amount').value;
             const currency = document.getElementById('currency').value;
             const apiKey = 'c840a45fc80f95dc8b99b4c8';
