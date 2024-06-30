@@ -37,6 +37,21 @@
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
          //still work on it ......hh
+             try {
+                const response = await fetch(url);
+                const data = await response.json();
+                if (data.cod === 200) {
+                    const temp = data.main.temp;
+                    const description = data.weather[0].description;
+                    const weatherInfo = `The temperature in ${city} is ${temp}°C with ${description}.`;
+                    document.getElementById('result').innerText = weatherInfo;
+                } else {
+                    document.getElementById('result').innerText = 'City not found. Please try again.';
+                }
+            } catch (error) {
+                document.getElementById('result').innerText = 'Error fetching weather data.';
+                console.error('Error fetching weather data:', error);
+            }
         }
     </script>
 </body>
