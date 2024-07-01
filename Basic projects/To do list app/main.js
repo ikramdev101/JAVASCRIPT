@@ -10,14 +10,14 @@
     <div class="container">
         <h2>To-Do List</h2>
         <input type="text" id="task" placeholder="Enter task...">
-        <button onclick="addTask()">Add Task</button>
+        <button onclick="ajtTask()">Add Task</button>
         <ul id="taskList"></ul>
     </div>
 
     <script>
         // Function to add a new task
-        function addTask() {
-            const taskInput = document.getElementById('taskInput');
+        function ajtTask() {
+            const taskInput = document.getElementById('task');
             const taskText = taskInput.value.trim();
             
             if (taskText !== '') {
