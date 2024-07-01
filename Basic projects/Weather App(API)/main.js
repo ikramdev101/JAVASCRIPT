@@ -1,4 +1,3 @@
-//working on it ....
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,10 +32,10 @@
     <script>
         async function getWeather() {
             const city = document.getElementById('city').value;
-            const apiKey = //i remove it you can use yours hhhh
+            const apiKey = //api key
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-         //still work on it ......hh
+        
              try {
                 const response = await fetch(url);
                 const data = await response.json();
