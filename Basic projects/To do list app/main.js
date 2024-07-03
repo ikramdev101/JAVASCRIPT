@@ -30,7 +30,18 @@
                     <button class="btn" onclick="deleteTask(this)">Delete</button>
                 `;
                 taskList.appendChild(newTask);
-taskInput.value='';            }
+                taskInput.value='';    
+            }
+         // Function to mark task as completed
+        function completeTask(button) {
+            const taskItem = button.parentNode;
+            taskItem.classList.toggle('completed');
+        }
+
+     
+    </script>
+</body>
+</html>
         }
 
     </script>
