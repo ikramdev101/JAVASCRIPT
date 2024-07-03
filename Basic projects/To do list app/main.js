@@ -30,8 +30,7 @@
                     <button class="btn" onclick="deleteTask(this)">Delete</button>
                 `;
                 taskList.appendChild(newTask);
-                taskInput.value = '';
-            }
+taskInput.value='';            }
         }
 
     </script>
