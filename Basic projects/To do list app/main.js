@@ -38,6 +38,11 @@
             taskItem.classList.toggle('completed');
         }
 
+        // Function to delete a task
+        function deleteTask(button) {
+            const taskItem = button.parentNode;
+            taskItem.remove();
+        }
      
     </script>
 </body>
