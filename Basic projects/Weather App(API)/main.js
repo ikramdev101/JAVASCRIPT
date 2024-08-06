@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-        <meta charset="UTF-8">
-
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width">
