@@ -1,0 +1,77 @@
+this code shows how to retrieve users and their posts when a user is clicked.
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="users"></div>
+    <div id="posts"></div>
+    <script>
+      function getUsers() {
+        let request = new XMLHttpRequest();
+        request.open("GET", "https://jsonplaceholder.typicode.com/users");
+        request.responseType = "json";
+        request.setRequestHeader("accept", "application/json");
+        request.setRequestHeader("content-type", "application/json");
+        request.send();
+
+        request.onload = function () {
+          if (request.status >= 200 && request.status < 300) {
+            let users = request.response;
+
+            for (let user of users) {
+              let div = document.createElement("div");
+              div.setAttribute("class", "dev");
+              div.setAttribute("onclick", `userClicked(${user.id})`);
+              div.textContent = user.name;
+              document.getElementById("users").append(div);
+            }
+          } else {
+            alert("Error fetching users");
+          }
+        };
+      }
+
+      function getposts(userId) {
+        let request = new XMLHttpRequest();
+        request.open("GET", `https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
+        request.responseType = "json";
+        request.setRequestHeader("accept", "application/json");
+        request.setRequestHeader("content-type", "application/json");
+        request.send();
+
+        request.onload = function () {
+          if (request.status >= 200 && request.status < 300) {
+            let posts = request.response;
+
+            document.getElementById("posts").innerHTML = "";
+
+            for (let post of posts) {
+              let div = document.createElement("div");
+              div.setAttribute("class", "dev2");
+              div.textContent = post.title;
+              document.getElementById("posts").append(div);
+            }
+          } else {
+            alert("Error fetching posts");
+          }
+        };
+      }
+
+      // Function to handle user click event
+      function userClicked(id) {
+        getposts(id);
+      }
+
+      // Fetch and display users when the page loads
+      getUsers();
+    </script>
+  </body>
+</html>
