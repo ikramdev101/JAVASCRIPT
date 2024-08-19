@@ -9,19 +9,31 @@
    <div id="div"></div>
    <script>
       //GET
-function getdata(){
-request = new MLHttpRequest()
-request.open('GET','https://jsonplaceholder.typicode.com/posts')
-request.responseType='json'
-request.send()
-request.onload= function(){
-let posts=request.response
-for (post of posts){
-   console.log(post);
-h2=document.createElement('h2')
-document.getElementById('div').append(h2)
-h2.textContent=post.title   
-}}
+function getData() {
+    let request = new XMLHttpRequest();
+    request.open('GET', 'https://jsonplaceholder.typicode.com/posts');
+    request.responseType = 'json';
+    request.send();
+
+    request.onload = function() {
+        if (request.status >= 200 && request.status < 300) { // Correction: 200 et 299 pour vérifier le statut de succès
+            let posts = request.response;
+            for (let post of posts) { // Correction: ajouter "let" devant "post" pour la déclaration
+                console.log(post);
+                let h2 = document.createElement('h2');
+                document.getElementById('div').append(h2);
+                h2.textContent = post.title;
+            }
+        } else {
+            console.error('Erreur lors de la requête:', request.status, request.statusText);
+        }
+    };
+
+    request.onerror = function() {
+        console.error('Erreur de réseau.');
+    };
+}
+//POST
 function postData() {
    // Create a new XMLHttpRequest object
    let request = new XMLHttpRequest();
