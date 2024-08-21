@@ -12,11 +12,58 @@
       rel="stylesheet"
     />
     <!-- css link -->
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <!-- js link -->
-     <script src="./assets/js/global.js" defer></script>
-     <script src="./assets/js/index.js" type='module'></script>
-    
+    <script src="./assets/js/global.js" defer></script>
+    <script src="./assets/js/index.js" type="module"></script>
   </head>
-  <body></body>
+  <body>
+    <!-- //header -->
+    <header class="header">
+      <a href="./index.html" class="logo">
+        <img
+          src="./assets/images/images (1).png"
+          alt=""
+          width="60"
+          height="20"
+          style="border-radius: 70%; padding: 5px"
+        />
+      </a>
+      <div class="search-box active" search-box>
+        <div class="search-wrapper" search-wrapper>
+          <input
+            type="text"
+            name="search"
+            aria-label="search movies"
+            placeholder=" search any movie ..."
+            class="search-field"
+            autocomplete="off"
+            search-field
+/>
+          <img
+            src="./assets/images/search.png"
+            width="24"
+            height="24"
+            alt="search"
+            class="leading-icon"
+          />
+         
+        </div>
+        
+    
+<button class="search-btn" search-toggler>
+    <img src="./assets/images/close.png" width="24" height="24" alt="" class="close search box">
+</button>
+        
+    </div>
+       <button class="search-btn" search-toggler menu-close>
+            <img src="./assets/images/search.png" width="24" height="24" alt=" open">
+        </button>
+        <button class="menu-btn "   menu-button menu-toggler>
+
+            <img src="./assets/images/menu.png"   width="24" height="24" alt="" class="menu">
+            <img src="./assets/images/menu-close.png"   width="24" height="24" alt="" class="close"> 
+        </button>
+    </header>
+  </body>
 </html>
