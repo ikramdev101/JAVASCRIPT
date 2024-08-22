@@ -1,4 +1,7 @@
 
+
+
+-----------------------------------*/
 :root{
   --background: hsla(220, 17%, 7%, 1);
 --banner-background: hsla(250, 6%, 20%, 1);
@@ -113,6 +116,62 @@ outline-color: var(--primary-variant);
 
 
 
+
+.search-wrapper::before{
+  position: absolute;
+  top: 14px;
+  right: 12px;
+  content: "";
+  width: 20px;
+  padding: 10px;
+  height: 20px;
+  border: 3px solid var(--white);
+  border-radius: var(--radius-24);
+  border-inline-end-color:transparent ;
+  animation: loading 500ms linear infinite;
+  display: none;
+
+
+}
+.search-wrapper.searching::before{
+  display: block;
+}
+@keyframes loading{
+  0%{transform: rotate(0);}
+  100%{transform: rotate(1turn);}
+}
+.search-field{
+  background-color: var(--banner-background);
+  height: 48px;
+  line-height: 48px;
+  padding-inline:44px 16px;
+  outline: none;
+  border-radius: var(--radius-8);
+  transition: var(--transition-short);
+}
+.search-field ::placeholder{color: var(--on-surface-variant);}
+.search-field:hover{
+box-shadow: 0 0 0 2px var(--on-surface-variant);
+}
+.search-field:focus{
+  box-shadow:0 0 0 2px var(--on-surface) ;
+  padding-inline-start: 16px;
+}
+.search-wrapper .leading-icon{
+  position:absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 12px;
+  opacity: 0.5;
+  transition: var(--transition-short);
+}
+.search-wrapper:focus-within .leading-icon{
+  opacity:0;
+}
+
+
+
+
 .header{
   position: relative;
   padding-block: 24px;
@@ -150,29 +209,30 @@ outline-color: var(--primary-variant);
 .menu-btn .active .close{
   display: block;
 }
-.search-box{
-position:absolute;
-top: 0;
-left: 0;
-width: 100%;
-height:  100%;
-background-color: var(--background);
-padding: 24px 16px;
-display:flex;
-align-items: center;
-gap: 8px;
-z-index: 1;
-/* display: none; */
+.search-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background);
+  padding: 24px 16px;
+  display: none; 
+  align-items: center;
+  gap: 8px;
+  z-index: 1;
+}
 
-  }
-  .search-box .active{
-    display: flex;
-  }
+.search-box.active {
+  display: flex;
+}
+
+
+
+.search-box .active {
+  display: flex;
+}
   .search-wrapper{
-    
+    position:relative;
+    flex-grow:1;
   }
-
-
-
-
-
